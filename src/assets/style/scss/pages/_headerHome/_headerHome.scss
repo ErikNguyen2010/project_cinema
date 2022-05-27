@@ -1,0 +1,57 @@
+@import "../../_theme/theme";
+
+.header{
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    background-color: $c-primary;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    .container{
+        .row{
+            .col-4{
+                .content{
+                    .header__logo{
+                        img{
+                            width: 30%;
+                        }
+                    }
+                    .navbar{
+                        a{
+                            @include text($c-dark, $fs-xs, $fw-bold);
+                            &:hover{
+                                color: $c-hover;
+                            }
+                        }
+                    }
+                    .header__login{
+                      padding: 6px 0;
+                        a{
+                            @include text(#9e9e9e, $fs-base, $fw-bold);
+                            margin-left: 20px;
+                            position: relative;
+                            &:hover{
+                                color: $c-hover;
+                            }
+                            i{
+                                margin-right: 5px;
+                                font-size: $fs-xl;
+                            }
+                        }
+                        a:first-child::after{
+                            content: "";
+                            display: block;
+                            height: 100%;
+                            width: 1px;
+                            top: 0;
+                            right: -10px;
+                            position: absolute;
+                            background-color: #9e9e9e;
+                           }
+                        
+                    }
+                }
+            }
+        }
+    }
+}

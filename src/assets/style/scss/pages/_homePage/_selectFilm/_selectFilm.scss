@@ -1,0 +1,103 @@
+@import "../../../_theme/theme";
+
+
+
+.selectfilm{
+    padding: 100px 0;
+    .container{
+        .row{
+            .col-3{
+                margin: 20px 0;
+                .content{
+                    .film__detail{
+                        
+                        .film__img{
+                            position: relative;
+                            .film__imgbg{
+                                background-position: center;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                padding-top: 150%;
+                            }
+                            img{
+                                width: 100%;
+                            }
+                            .film__overlay{
+                                transition: all 0.5s;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                &:hover{
+                                    background-color: rgba(0, 0, 0, 0.6);
+                                    button{
+                                        visibility: visible;
+                                        opacity: 1;
+                                    }
+                                }
+                                .btn-buy{
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    @include text($c-primary, $fs-base, $fw-bold);
+                                    position: relative;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%,-50%);
+                                    background-color: transparent;
+                                    padding: 10px 40px;
+                                    border-color: $c-primary;
+                                    display: block;
+                                    margin-bottom: 10px;
+                                    &:hover{
+                                        border-color: $c-hover;
+                                        background-color: $c-hover;
+                                    }
+                                }
+                                .btn-trailer{
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    @include text($c-primary, $fs-base, $fw-bold);
+                                    position: relative;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%,-50%);
+                                    background-color: transparent;
+                                    padding: 10px 20px;
+                                    border-color: $c-primary;
+                                    display: block;
+                                    &:hover{
+                                        border-color: $c-primary;
+                                        color: $c-dark;
+                                        background-color: $c-primary;
+                                    }
+                                }
+                            }
+                        }
+                        .film__name{
+                            margin-top: 5px;
+                     ;
+                            span{
+                                @include text($c-primary, $fs-base, $fw-semibold);
+                            }
+                            .film__title{
+                                text-align: center;
+                                @include text($c-dark, $fs-2xl, $fw-bold)
+                            }
+                        }
+                }
+                }
+            }
+        }
+    }
+}
+.ant-modal-footer{
+    display: none;
+}
+.ant-modal-body{
+    padding: unset;
+    height: 50px;
+}
+.ant-modal-close-x{
+    display: none;
+}
