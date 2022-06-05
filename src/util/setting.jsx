@@ -13,7 +13,7 @@ export const http = axios.create({
 http.interceptors.request.use((config) =>{
     config.headers = {
         ...config.headers,
-        'Authorization' : 'Bearer' + localStorage.getItem(ACCESSTOKEN),
+        'Authorization' : `Bearer ${localStorage.getItem(ACCESSTOKEN)}`,
         'TokenCybersoft': TOKEN_CYBERSOFT
     }
     return config

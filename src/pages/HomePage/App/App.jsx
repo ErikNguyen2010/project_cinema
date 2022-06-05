@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function App() {
   return (
-    <section className='app'>
+    <section id='app' className='app'>
         <div className="container">
             <div className="row">
                 <div className="col-6">
@@ -13,10 +13,10 @@ export default function App() {
                             <br/>
                             <button className="btn btn-danger">APP MIỄN PHÍ - TẢI VỀ NGAY!</button>
                             <br/>
-                            <span>TIX có hai phiên bản <a href="">
+                            <span>TIX có hai phiên bản <a target="_blank" href="https://www.apple.com/vn/app-store/">
                                 IOS
                                 </a> & 
-                                <a href="">
+                                <a target="_blank" href="https://play.google.com/store/games?hl=vi&gl=US">
                                 Android
                                 </a>
                                 </span>

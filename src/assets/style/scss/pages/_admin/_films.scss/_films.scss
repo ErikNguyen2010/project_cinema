@@ -1,0 +1,9 @@
+.btn-add{
+    @include text($c-primary, $fs-md, $fw-bold);
+    background-color: #1dbf73;
+    border: none;
+    
+    &:hover{
+        background-color: #19a463
+    }
+}

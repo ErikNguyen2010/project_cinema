@@ -14,12 +14,11 @@ export default function HomePage(props) {
 
   const {banners} = useSelector((rootReducer) => rootReducer.layBannerReducer) 
 
-  const {arrRap} = useSelector((rootReducer) => rootReducer.layThongTinRapReducer)
+  const {arrRap} = useSelector((rootReducer) => rootReducer.rapReducer)
 
   return (
     <Fragment>
       <CarouselHome banners={banners}/>
-      <Options/>
       <SelectFilm films={films} />
       <Booking arrRap={arrRap}/>
       <App/>

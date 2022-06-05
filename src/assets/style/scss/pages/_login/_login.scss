@@ -1,0 +1,94 @@
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+  #components-form-demo-normal-login .login-form-forgot {
+    float: right;
+  }
+  #components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+  #components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }
+
+.login{
+    padding: 200px 0;
+}
+.login__header{
+    @include text($c-text, 24px, $fw-bold);
+    text-align: center;
+
+}
+.login__apps{
+    .btn-facebook{
+        background-color: #4267b2;
+        border: 1px solid #4267b2;
+        width: 100%;
+        @include text($c-white, $fs-base, $fw-bold);
+        &:hover{
+            opacity: 0.9;
+        }
+        i{
+            margin-right: 20px;
+        }
+    }
+    .btn-google{
+        background-color: $c-white;
+        border: 1px solid #e4e5e7;
+        @include text(#62646a, $fs-base, $fw-bold);
+        width: 100%;
+        margin-top: 10px;
+        &:hover{
+            background-color: #fafafa;
+        }
+        i{
+            margin-right: 20px;
+        }
+    }
+    
+}
+.login__separator{
+    height: 12px;
+    margin: 20px 0 32px;
+    text-align: center;
+    border-bottom: 1px solid #e4e5e7;
+    span{
+        @include text(#62646a, $fs-xs, $fw-bold);
+        line-height: 24px;
+        padding: 0 8px;
+        background-color: $c-white;
+    }
+} 
+
+.ant-checkbox + span,
+.login__text{
+    @include text($c-text, $fs-base, $fw-regular)
+}
+.login-form-forgot{
+    @include text(#1dbf73, $fs-base, $fw-semibold);
+    margin-left: 40%;
+}
+button.ant-btn.ant-btn-default.login-form-button{
+    @include text($c-white, $fs-md, $fw-bold);
+    background-color: #1dbf73;
+    border: none;
+    width: 100%;
+    height:100%;
+    &:hover{
+        background-color: #19a463
+    }
+}
+.login__register{
+    @include text(#1dbf73, $fs-base, $fw-semibold);
+    margin-left: 10px;
+}
+.or{
+    @include text($c-text, $fs-base, $fw-regular);
+    margin-left: 20px;
+}
+.ant-modal-close-x{
+    display: none;
+}
+.ant-modal-footer{
+    display: none;
+}

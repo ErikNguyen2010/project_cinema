@@ -1,12 +1,18 @@
 import {applyMiddleware, configureStore, createStore} from '@reduxjs/toolkit'
 import layBannerReducer from './reducers/layBannerReducer'
 import layDanhSachFilmReducer from './reducers/layDanhSachFilmReducer'
-import layThongTinRapReducer from './reducers/layThongTinRapReducer'
+import rapReducer from './reducers/rapReducer'
+import userReducer from './reducers/userReducer'
+import loadingReducer from './reducers/loadingReducer'
+import bookingReducer from './reducers/bookingReducer'
 export const store = configureStore({
     reducer:{
         layDanhSachFilmReducer,
         layBannerReducer,
-        layThongTinRapReducer,
+        rapReducer,
+        userReducer,
+        loadingReducer,
+        bookingReducer,
     }
 })
 

@@ -1,0 +1,91 @@
+
+.detail{
+    background: url('../../../../image/bg-blur.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 100px 0;
+    .container{
+        .row{
+            .col-5{
+                .content{
+                    .detail__img{
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        padding-top: 70%;
+                        background-image: url('../../../../image/bg-1.jpg');
+                    }
+                }
+            }
+            .col-7{
+                .content{
+                    .detail__content{
+                        h1{
+                            @include text($c-dark, $fs-3xl, $fw-bold);
+                        }
+                        .detail__date{
+                            margin: 10px 0;
+                            display: block;
+                            @include text($c-dark, $fs-xl, $fw-semibold);
+                        }
+                        p{
+                            @include text($c-dark, $fs-base, $fw-regular);
+                        }
+                        .btn-trailer{
+                            float: right;
+                            @include text($c-dark, $fs-base, $fw-bold);
+                            background-color: transparent;
+                            padding: 10px 40px;
+                            border-color: $c-dark;
+                            margin-bottom: 10px;
+                            &:hover{
+                                border-color: $c-primary;
+                                background-color: $c-primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.booking__cumrap{
+    padding: 10px 0;
+    &:hover{
+        background-color: rgba(0,0,0,0.04)
+    }
+}
+
+.detail{
+    .container{
+        .row{
+            .col-12{
+                .content{
+                    .detail__tab{
+                        margin-top: 100px;
+                        .detailtab__title{
+                            @include text($c-dark, $fs-2xl, $fw-bold);
+                        }
+                        .detailtab__subtitle{
+                            text-transform: uppercase;
+                            @include text($c-dark, $fs-xl, $fw-bold);
+                        }
+                        span{
+                            @include text($c-dark, $fs-xl, $fw-regular);
+                            display: block;
+                            margin: 5px 0
+                        }
+                        a{
+                            @include text($c-dark, $fs-base, $fw-bold);
+                            &:hover{
+                                color: $c-hover
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

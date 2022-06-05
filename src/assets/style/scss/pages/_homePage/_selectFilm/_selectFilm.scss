@@ -3,7 +3,7 @@
 
 
 .selectfilm{
-    padding: 100px 0;
+    padding: 60px 0;
     .container{
         .row{
             .col-3{
@@ -31,7 +31,7 @@
                                 height: 100%;
                                 &:hover{
                                     background-color: rgba(0, 0, 0, 0.6);
-                                    button{
+                                    a{
                                         visibility: visible;
                                         opacity: 1;
                                     }
@@ -47,7 +47,6 @@
                                     background-color: transparent;
                                     padding: 10px 40px;
                                     border-color: $c-primary;
-                                    display: block;
                                     margin-bottom: 10px;
                                     &:hover{
                                         border-color: $c-hover;
@@ -65,7 +64,6 @@
                                     background-color: transparent;
                                     padding: 10px 20px;
                                     border-color: $c-primary;
-                                    display: block;
                                     &:hover{
                                         border-color: $c-primary;
                                         color: $c-dark;
@@ -100,4 +98,19 @@
 }
 .ant-modal-close-x{
     display: none;
+}
+.btn-film{
+    @include text($c-primary, $fs-md, $fw-bold);
+    background-color: #1dbf73;
+    border: none;
+    
+    &:hover{
+        background-color: #19a463
+    }
+}
+.btn-active{
+    background-color: #19a463 !important;
+}
+.btn-disactive{
+    background-color: black !important;
 }
