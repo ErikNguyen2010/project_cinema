@@ -1,5 +1,4 @@
 import {applyMiddleware, configureStore, createStore} from '@reduxjs/toolkit'
-import layBannerReducer from './reducers/layBannerReducer'
 import layDanhSachFilmReducer from './reducers/layDanhSachFilmReducer'
 import rapReducer from './reducers/rapReducer'
 import userReducer from './reducers/userReducer'
@@ -8,7 +7,6 @@ import bookingReducer from './reducers/bookingReducer'
 export const store = configureStore({
     reducer:{
         layDanhSachFilmReducer,
-        layBannerReducer,
         rapReducer,
         userReducer,
         loadingReducer,

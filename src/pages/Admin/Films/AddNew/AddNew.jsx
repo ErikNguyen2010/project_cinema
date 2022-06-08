@@ -15,8 +15,12 @@ import {
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import locale from 'antd/lib/locale/zh_CN';
+import { themPhim } from '../../../../redux/reducers/layDanhSachFilmReducer';
+import { useDispatch } from 'react-redux';
+import { GROUP_ID } from '../../../../util/setting';
 export default function AddNew(props) {
     const [imgSrc, setImgSrc] = useState('')
+    const dispatch = useDispatch()
     const addNewRef = useRef({
         tenPhim: '',
         hinhAnh: '',
@@ -33,7 +37,6 @@ export default function AddNew(props) {
     const handleChange = (e) =>{
         let {name,value} = e.target
         addNewRef.current[name] = value
-        console.log(addNewRef.current);
     }
     const handleChangeDatePicker = (e) =>{
         let ngayKhoiChieu = moment(e).format("DD/MM/YYYY");
@@ -64,8 +67,19 @@ export default function AddNew(props) {
             addNewRef.current.hinhAnh = file
         }
     }
-    const handleSubmit = () =>{
-        
+    const handleSubmit = (e) =>{
+        addNewRef.current.maNhom = GROUP_ID
+        let formData = new FormData()
+        for(let key in addNewRef.current){
+            if(key !== "hinhAnh"){
+                formData.append(key,addNewRef.current[key])
+            }else{
+                formData.append("File", addNewRef.current.hinhAnh, addNewRef.current.hinhAnh.name)
+            }
+        }
+        console.log(formData.get("File"));
+        const action = themPhim(formData)
+        dispatch(action)
     }
     const [componentSize, setComponentSize] = useState('default');
 
@@ -120,7 +134,7 @@ export default function AddNew(props) {
                     <img style={{width: '150px', height:"150px"}} src={imgSrc} alt="" />
                 </Form.Item>
                 <Form.Item>
-                <Button htmlType='submit'>Xác Nhận</Button>
+                <button style={{marginLeft:"30%"}} className='btn-add btn btn-success' type='submit'>Xác Nhận</button>
 
                 </Form.Item>
             </Form>

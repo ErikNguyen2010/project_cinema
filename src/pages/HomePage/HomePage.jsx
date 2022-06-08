@@ -10,9 +10,8 @@ import {useSelector} from 'react-redux'
 export default function HomePage(props) {
 
 
-  const {films} = useSelector((rootReducer) => rootReducer.layDanhSachFilmReducer)
+  const {films,banners} = useSelector((rootReducer) => rootReducer.layDanhSachFilmReducer)
 
-  const {banners} = useSelector((rootReducer) => rootReducer.layBannerReducer) 
 
   const {arrRap} = useSelector((rootReducer) => rootReducer.rapReducer)
 

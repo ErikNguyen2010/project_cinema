@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { Table,Space, Input  } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilms } from '../../../redux/reducers/layDanhSachFilmReducer';
+import { getFilms, xoaPhimAPI } from '../../../redux/reducers/layDanhSachFilmReducer';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
 const { Search } = Input;
@@ -64,15 +64,18 @@ export default function Films() {
     },
     {
       title: 'Hành Động',
-      dataIndex: 'hanhDong',
+      dataIndex: 'maPhim',
       render: (text,film) =>{
         return <Fragment>
-          <NavLink style={{fontSize: "20px", fontWeight:"bold"}} to="/">
+          <NavLink style={{fontSize: "20px", fontWeight:"bold"}} to={`/admin/films/edit/${film.maPhim}`}>
             <i className="fa-solid fa-marker"></i>
           </NavLink>
-          <NavLink className="ml-4" style={{fontSize: "20px", fontWeight:"bold", color:"red"}} to="/">
+          <a onClick={() =>{
+            const action = xoaPhimAPI(film.maPhim)
+            dispatch(action)
+          }} className="ml-4" style={{fontSize: "20px", fontWeight:"bold", color:"red"}} >
             <i className="fa-solid fa-trash"></i>
-          </NavLink>
+          </a>
         </Fragment>
       },
       width: "30%",
@@ -99,7 +102,7 @@ export default function Films() {
       size="large"
       onSearch={onSearch}
     />
-        <Table columns={columns} dataSource={data} onChange={onChange} />
+        <Table columns={columns} dataSource={data} onChange={onChange} rowKey={"maPhim"} />
     </section>
   )
 }

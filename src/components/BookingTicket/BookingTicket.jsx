@@ -1,7 +1,7 @@
 import React, { Fragment, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { datGhe, datGheAPI, getDanhSachPhongVe } from '../../redux/reducers/bookingReducer'
+import { datGhe, datGheAPI, datVe, getDanhSachPhongVe } from '../../redux/reducers/bookingReducer'
 import { USER_LOGIN } from '../../util/setting'
 import {CloseOutlined, TrophyOutlined , AndroidOutlined} from '@ant-design/icons'
 import _ from 'lodash'
@@ -59,7 +59,7 @@ function BookingTicket(props) {
 
         return <Fragment key={key}>
           <button onClick={() =>{
-            const action = datGhe(ghe)
+            const action = datVe(ghe)
             dispatch(action)
           }} disabled={ghe.daDat || classGheKhachDat} style={{color:"white", fontSize:"16px", fontWeight:"bold"}} className={`ghe ${classGheKhachDat} ${classGheDaDuocDat} ${classGheDaDat} ${classGheVip} ${classGheDangDat}`}>
             {ghe.daDat ? <CloseOutlined /> : classGheKhachDat !== "" ?  <AndroidOutlined />: ghe.stt}

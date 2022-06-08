@@ -19,8 +19,8 @@ function BookingPage(props) {
   return (
     <div>
         <Tabs tabBarExtraContent={
-          <Fragment>
-          <NavLink className="booking__avatar" style={{textTransform: "uppercase"}} to="/profile">
+          <Fragment >
+          <NavLink className="booking__avatar" style={{textTransform: "uppercase"}} to="/admin">
               <i className="fa-solid fa-user-astronaut"></i>
                 hi {userLogin.hoTen}
               </NavLink>
@@ -31,7 +31,7 @@ function BookingPage(props) {
                     history.push('/home')
                     window.location.reload()
                   }
-                }} to="/">
+                }} to="#">
                   Đăng Xuất
               </NavLink>
               <NavLink className="booking__avatar mr-5"  to="/">

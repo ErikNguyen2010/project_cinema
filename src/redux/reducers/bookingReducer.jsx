@@ -55,12 +55,6 @@ export const getDanhSachPhongVe = (maLichChieu) =>{
     }
 }
 
-export const datGhe = (ghe) =>{
-    return dispatch =>{
-        const action = datVe(ghe)
-        dispatch(action)
-    }
-}
 
 export const datGheAPI = (thongTinDatVe = new ThongTinDatVe()) =>{
     return async dispatch =>{

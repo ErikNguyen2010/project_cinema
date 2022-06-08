@@ -25,7 +25,7 @@ export default function HeaderHome(props) {
       </Fragment> 
     }
     return <Fragment>
-    <NavLink style={{textTransform: "uppercase"}} to="/">
+    <NavLink style={{textTransform: "uppercase"}} to="/admin">
         <i className="fa-solid fa-user-astronaut"></i>
           hi {userLogin.hoTen}
         </NavLink>
@@ -36,7 +36,7 @@ export default function HeaderHome(props) {
             history.push('/home')
             window.location.reload()
           }
-        }} to="/">
+        }} to="#">
           Đăng Xuất
         </NavLink>
   </Fragment> 

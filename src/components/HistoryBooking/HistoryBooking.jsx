@@ -21,7 +21,7 @@ import _ from "lodash"
             <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={`${phim.hinhAnh}`} />
             <div className="flex-grow">
                 <h1 style={{textTransform: "uppercase"}} className="text-gray-900 title-font font-bold">{phim.tenPhim}</h1>
-                <p style={{fontSize: "15px"}} className="text-gray-800 font-regular">{moment(phim.ngayDat).format("DD:MM:YY hh:mm A")}</p>
+                <p style={{fontSize: "15px"}} className="text-gray-800 font-regular">{moment(phim.ngayDat).locale('en').format("DD:MM:YY hh:mm A")}</p>
                 <p style={{fontSize: "15px"}} className="text-gray-800 font-regular">{seats.tenHeThongRap}</p>
                 <span style={{fontSize: "15px"}} className="text-gray-800 font-regular">{seats.tenRap}</span>
                 <br/>

@@ -4,7 +4,7 @@ import ReactDOM, { render } from "react-dom";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { useDispatch } from "react-redux";
-import { getBanner } from "../../../redux/reducers/layBannerReducer";
+import { getBanner } from "../../../redux/reducers/layDanhSachFilmReducer";
 
 
 export default function CarouselHome(props) {

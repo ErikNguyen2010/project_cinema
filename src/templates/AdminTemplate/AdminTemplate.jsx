@@ -12,7 +12,8 @@ import {
     FileAddFilled,
     FileFilled,
   } from '@ant-design/icons';
-import { USER_LOGIN } from "../../util/setting";
+import { ACCESSTOKEN, USER_LOGIN } from "../../util/setting";
+import { history } from "../../App";
   const { Header, Content, Footer, Sider } = Layout;
 
   function getItem(label, key, icon, children) {
@@ -58,7 +59,7 @@ export const  AdminTemplate = (props) =>{
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div className="logo p-3">
             <NavLink to="/">
-              <img src="../image/bg-cgv.png" alt="..." style={{width:"100%", height:"140px"}}/>
+              <img src="https://e-magazine.asiamedia.vn/wp-content/uploads/2022/01/512x512.22cdafa36d7ed05664bdb0a0699771c2.ai_.1.png" alt="..." style={{width:"100%", height:"140px"}}/>
             </NavLink>
         </div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -83,12 +84,32 @@ export const  AdminTemplate = (props) =>{
         </Menu>
       </Sider>
             <Layout className="site-layout">
-                <Header
-                className="site-layout-background"
+                <Header      className="d-flex justify-content-end site-layout-background"
                 style={{
-                    padding: 0,
-                }}
-                />
+                  padding: 0,
+                }}>
+
+                <Fragment>
+                          <NavLink className="booking__avatar" style={{textTransform: "uppercase"}} to="/admin">
+                              <i className="fa-solid fa-user-astronaut"></i>
+                                hi {userLogin.hoTen}
+                              </NavLink>
+                              <NavLink className="booking__avatar mr-5" onClick={() =>{
+                                  if(window.confirm("Bạn có muốn đăng xuất không?")){
+                                    localStorage.removeItem(USER_LOGIN)
+                                    localStorage.removeItem(ACCESSTOKEN)
+                                    history.push('/home')
+                                    window.location.reload()
+                                  }
+                                }} to="#">
+                                  Đăng Xuất
+                              </NavLink>
+                              <NavLink className="booking__avatar mr-5"  to="/">
+                              <i class="fa-solid fa-house"></i> Về trang chủ
+                              </NavLink>
+                  </Fragment> 
+                
+                </Header>
                 <Content
                 style={{
                     margin: '0 16px',
