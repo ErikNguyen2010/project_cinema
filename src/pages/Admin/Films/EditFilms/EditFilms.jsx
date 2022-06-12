@@ -3,27 +3,19 @@ import {useFormik} from 'formik'
 import {
     Form,
     Input,
-    Button,
-    Radio,
-    Select,
-    Cascader,
     DatePicker,
     InputNumber,
-    TreeSelect,
     Switch,
-    ConfigProvider,
   } from 'antd';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/lib/locale/zh_CN';
 import { editPhimAPI, layThongTinPhimAPI, themPhim } from '../../../../redux/reducers/layDanhSachFilmReducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { GROUP_ID } from '../../../../util/setting';
-export default function EditFilm(props) {
+import { memo } from 'react';
+ function EditFilm(props) {
     const [imgSrc, setImgSrc] = useState('')
     const dispatch = useDispatch()
    const {thongTinPhim} = useSelector(rootReducer => rootReducer.layDanhSachFilmReducer)
-   console.log(thongTinPhim);
    useEffect(() =>{
     let{id} = props.match.params
     const action = layThongTinPhimAPI(id)
@@ -152,3 +144,6 @@ export default function EditFilm(props) {
     </section>
   )
 }
+
+
+export default memo(EditFilm)

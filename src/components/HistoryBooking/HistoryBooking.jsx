@@ -1,19 +1,18 @@
 import moment from 'moment'
 import React, { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getThongTinNguoiDungAPI } from '../../redux/reducers/userReducer'
+import { getThongTinTaiKhoanAPI } from '../../redux/reducers/userReducer'
 import _ from "lodash"
 
  function HistoryBooking() {
-    const {thongTinNguoiDung} = useSelector(rootReducer => rootReducer.userReducer)
+    const {thongTinTaiKhoan} = useSelector(rootReducer => rootReducer.userReducer)
     const dispatch = useDispatch()
     useEffect(() =>{
-        const action = getThongTinNguoiDungAPI()
+        const action = getThongTinTaiKhoanAPI()
         dispatch(action)
     },[])
-    console.log(thongTinNguoiDung);
     const renderChiTiet = () =>{
-        return thongTinNguoiDung.thongTinDatVe?.map((phim,key) =>{
+        return thongTinTaiKhoan.thongTinDatVe?.map((phim,key) =>{
             let seats = _.first(phim.danhSachGhe)
             console.log(phim);
             return <div key={key} className="p-2 lg:w-1/3 md:w-1/2 w-full">

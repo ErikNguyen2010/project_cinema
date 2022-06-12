@@ -12,7 +12,7 @@ function BookingTicket(props) {
    
   const {userLogin} = useSelector(rootReducer => rootReducer.userReducer)
   const {danhSachPhongVe, arrDatVe} = useSelector(rootReducer => rootReducer.bookingReducer)
-  console.log(danhSachPhongVe);
+  console.log(userLogin);
 
   let {id} = props.match.params
   const dispatch = useDispatch()

@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getFilms, xoaPhimAPI } from '../../../redux/reducers/layDanhSachFilmReducer';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
+import { memo } from 'react';
 const { Search } = Input;
 
 
-export default function Films() {
+ function Films() {
   const {arrFilmDefault} = useSelector(rootReducer => rootReducer.layDanhSachFilmReducer)
   const dispatch = useDispatch()
   useEffect(() =>{
@@ -73,9 +74,12 @@ export default function Films() {
           <a onClick={() =>{
             const action = xoaPhimAPI(film.maPhim)
             dispatch(action)
-          }} className="ml-4" style={{fontSize: "20px", fontWeight:"bold", color:"red"}} >
+          }} className="ml-4 mr-4" style={{fontSize: "20px", fontWeight:"bold", color:"red"}} >
             <i className="fa-solid fa-trash"></i>
           </a>
+          <NavLink style={{color: "green" ,fontSize: "20px", fontWeight:"bold"}} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`}>
+            <i className="fa-solid fa-calendar-days"></i>
+          </NavLink>
         </Fragment>
       },
       width: "30%",
@@ -83,14 +87,15 @@ export default function Films() {
   ];
   const data = arrFilmDefault;
   
-  const onSearch = (value) => console.log(value);
+  const onSearch = (value) => {
+    const action = getFilms(value)
+    dispatch(action)
+  }
   const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
   };
-  console.log(arrFilmDefault);
   return (
     <section className='admin__films'>
-      <h1 className='text-center mb-5' style={{fontSize: "30px", fontWeight:"bold", color:"black"}}>Quản lý Films</h1>
+      <h1 className='text-center mb-5' style={{fontSize: "30px", fontWeight:"bold", color:"black"}}>Quản Lý Films</h1>
       <button onClick={() =>{
         history.push("/admin/films/addnew")
       }} className="btn-add btn btn-success">Thêm Films</button>
@@ -106,3 +111,5 @@ export default function Films() {
     </section>
   )
 }
+
+export default memo(Films)

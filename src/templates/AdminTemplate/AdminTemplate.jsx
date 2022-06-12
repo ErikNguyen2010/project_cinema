@@ -3,14 +3,13 @@ import { useSelector } from "react-redux"
 import { NavLink, Redirect, Route } from "react-router-dom"
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
     UserOutlined,
     WindowsFilled,
     FileAddFilled,
     FileFilled,
+    UserAddOutlined,
+    RobotOutlined,
+    SubnodeOutlined,
   } from '@ant-design/icons';
 import { ACCESSTOKEN, USER_LOGIN } from "../../util/setting";
 import { history } from "../../App";
@@ -62,10 +61,17 @@ export const  AdminTemplate = (props) =>{
               <img src="https://e-magazine.asiamedia.vn/wp-content/uploads/2022/01/512x512.22cdafa36d7ed05664bdb0a0699771c2.ai_.1.png" alt="..." style={{width:"100%", height:"140px"}}/>
             </NavLink>
         </div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<UserOutlined/>}>
+        <Menu theme="dark" mode="inline">
+
+
+          <Menu.SubMenu key={23} title="Users" icon={<RobotOutlined />}>
+            <Menu.Item key="12" icon={<UserOutlined/>}>
                 <NavLink to="/admin/users">Users</NavLink>
             </Menu.Item>
+            <Menu.Item key="13" icon={<SubnodeOutlined />}>
+                <NavLink to="/admin/users/adduser">Add Users</NavLink>
+            </Menu.Item>
+          </Menu.SubMenu>
 
 
             <Menu.SubMenu key={22} title="Films" icon={<WindowsFilled />}>
@@ -76,11 +82,6 @@ export const  AdminTemplate = (props) =>{
                   <NavLink to="/admin/films/addnew">Add New</NavLink>
               </Menu.Item>
             </Menu.SubMenu>
-
-
-            <Menu.Item key="3" icon={<DesktopOutlined/>}>
-                <NavLink to="/admin/showtime">Showtime</NavLink>
-            </Menu.Item>
         </Menu>
       </Sider>
             <Layout className="site-layout">
@@ -105,7 +106,7 @@ export const  AdminTemplate = (props) =>{
                                   Đăng Xuất
                               </NavLink>
                               <NavLink className="booking__avatar mr-5"  to="/">
-                              <i class="fa-solid fa-house"></i> Về trang chủ
+                              <i className="fa-solid fa-house"></i> Về trang chủ
                               </NavLink>
                   </Fragment> 
                 

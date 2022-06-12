@@ -35,7 +35,7 @@ function BookingPage(props) {
                   Đăng Xuất
               </NavLink>
               <NavLink className="booking__avatar mr-5"  to="/">
-              <i class="fa-solid fa-house"></i> Về trang chủ
+              <i className="fa-solid fa-house"></i> Về trang chủ
               </NavLink>
         </Fragment> 
       

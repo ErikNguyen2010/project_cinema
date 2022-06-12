@@ -1,24 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import {
     Form,
     Input,
-    Button,
-    Radio,
-    Select,
-    Cascader,
     DatePicker,
     InputNumber,
-    TreeSelect,
     Switch,
-    ConfigProvider,
   } from 'antd';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/lib/locale/zh_CN';
 import { themPhim } from '../../../../redux/reducers/layDanhSachFilmReducer';
 import { useDispatch } from 'react-redux';
 import { GROUP_ID } from '../../../../util/setting';
-export default function AddNew(props) {
+ function AddNew(props) {
     const [imgSrc, setImgSrc] = useState('')
     const dispatch = useDispatch()
     const addNewRef = useRef({
@@ -141,3 +134,5 @@ export default function AddNew(props) {
     </section>
   )
 }
+
+export default memo(AddNew)

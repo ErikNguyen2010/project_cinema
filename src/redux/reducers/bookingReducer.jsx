@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { history } from '../../App';
 import { http } from '../../util/setting';
 import { ThongTinDatVe } from '../../_core/models/ThongTinDatVe';
 import { hideLoading, loading } from './loadingReducer';
@@ -72,6 +73,20 @@ export const datGheAPI = (thongTinDatVe = new ThongTinDatVe()) =>{
         catch(error){
             dispatch(hideLoading())
             console.log(error.response);
+        }
+    }
+}
+
+
+export const taoLichChieu = (thongTin) =>{
+    return async dispatch => {
+        try{
+            let result = await http.post(`/api/QuanLyDatVe/TaoLichChieu`, thongTin)
+            alert('Thêm lịch chiếu thành công!')
+            history.push('/admin/films')
+        }
+        catch(err){
+            console.log(err.response?.data)
         }
     }
 }

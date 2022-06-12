@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { http } from '../../util/setting';
+import { GROUP_ID, http } from '../../util/setting';
 
 const initialState = {
     arrRap : [],
-    thongTinPhimChiTiet: {}
+    thongTinPhimChiTiet: {},
+    heThongRap: [],
+    cumRap: []
 }
 
 const rapReducer = createSlice({
@@ -15,11 +17,17 @@ const rapReducer = createSlice({
       },
       getThongTinPhimApi : (state,action) =>{
           state.thongTinPhimChiTiet = action.payload
+      },
+      getHeThongRap : (state,action) =>{
+        state.heThongRap = action.payload
+      },
+      getCumRap: (state,action) =>{
+        state.cumRap = action.payload
       }
   }
 });
 
-export const {getThongTinRapApi,getThongTinPhimApi} = rapReducer.actions
+export const {getCumRap ,getThongTinRapApi,getThongTinPhimApi,getHeThongRap} = rapReducer.actions
 
 export default rapReducer.reducer
 
@@ -48,6 +56,33 @@ export const getThongTinPhim = (idPhim) =>{
         }  
         catch(error){
             console.log(error.response?.data);
+        }
+    }
+}
+
+export const getThongTinHeThongRap = () =>{
+    return async (dispatch) =>{
+        try{
+            let result = await http.get(`/api/QuanLyRap/LayThongTinHeThongRap`)
+            const action =   getHeThongRap(result.data.content)          
+            dispatch(action)
+        }
+        catch(err){
+            console.log(err.response?.data);
+        }
+    }
+} 
+
+
+export const getThongTinCumRap = (maHeThongRap) =>{
+    return async (dispatch) =>{
+        try{
+            let result = await http.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`)
+            const action = getCumRap(result.data.content)
+            dispatch(action)
+        }
+        catch(err){
+            console.log(err.response?.data);
         }
     }
 }

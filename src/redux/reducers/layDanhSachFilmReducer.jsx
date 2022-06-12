@@ -43,12 +43,18 @@ export const {getBannerApi ,getListFilmApi,getFilmsSapChieu, getFilmsDangChieu, 
 export default layDanhSachFilmReducer.reducer
 
 
-export const getFilms= () =>{
+export const getFilms= (tenPhim="") =>{
     return async (dispatch) =>{
     try{
-        const result = await http.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01")
+        if(tenPhim.toLowerCase().trim()!== ""){
+        const result = await http.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`)
         const action = getListFilmApi(result.data.content)
         dispatch(action)
+        }else{
+            const result = await http.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01")
+            const action = getListFilmApi(result.data.content)
+            dispatch(action)
+        }
     }catch(error){
         console.log(error.response?.data);
     }
