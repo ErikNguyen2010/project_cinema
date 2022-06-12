@@ -21,6 +21,7 @@ import EditFilms from './pages/Admin/Films/EditFilms/EditFilms';
 import Users from "./pages/Admin/Users/Users"
 import AddUser from './pages/Admin/Users/AddUser/AddUser'
 import EditUser from './pages/Admin/Users/EditUser/EditUser';
+import Profile from './pages/Profile/Profile';
 export const history = createBrowserHistory();
 function App() {
   return (
@@ -30,13 +31,13 @@ function App() {
         <HomeTemplate path="/home" exact component={HomePage} />
         <HomeTemplate path="/login" exact component={Login} />
         <HomeTemplate path="/register" exact component={Register} />
+        <HomeTemplate path="/profile/:taikhoan" exact component={Profile} />
         <HomeTemplate path="/detail/:id" exact component={Detail} />
 
 
         <BookingTemplate path="/booking/:id" exact component={BookingPage} />
 
 
-        <AdminTemplate path="/admin" exact component={Dashboard} />
         <AdminTemplate path="/admin/users" exact component={Users} />
         <AdminTemplate path="/admin/users/adduser" exact component={AddUser} />
         <AdminTemplate path="/admin/users/edit/:taikhoan" exact component={EditUser} />
@@ -44,7 +45,7 @@ function App() {
         <AdminTemplate path="/admin/films" exact component={Films} />
         <AdminTemplate path="/admin/films/edit/:id" exact component={EditFilms} />
         <AdminTemplate path="/admin/films/addnew" exact component={AddNew} />
-        <AdminTemplate path="/admin/films/showtime/:id/:tenPhim" exact component={ShowTime} />
+        <AdminTemplate path="/admin/films/showtime/:id/:tenphim" exact component={ShowTime} />
 
         {/* <AdminTemplate path="/admin/showtime" exact component={ShowTime} /> */}
 

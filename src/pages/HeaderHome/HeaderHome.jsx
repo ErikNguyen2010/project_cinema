@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, memo } from 'react'
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom'
@@ -8,9 +8,9 @@ import { ACCESSTOKEN, USER_LOGIN } from '../../util/setting';
 import { history } from '../../App';
 
 
-
-export default function HeaderHome(props) {
+ function HeaderHome(props) {
   const {userLogin} = useSelector(rootReducer => rootReducer.userReducer)
+  console.log(userLogin);
   const renderLogin = () =>{
     if(_.isEmpty(userLogin)){
       return  <Fragment>
@@ -25,7 +25,7 @@ export default function HeaderHome(props) {
       </Fragment> 
     }
     return <Fragment>
-    <NavLink style={{textTransform: "uppercase"}} to="/admin">
+    <NavLink style={{textTransform: "uppercase"}} to={`/profile/${userLogin.taiKhoan}`}>
         <i className="fa-solid fa-user-astronaut"></i>
           hi {userLogin.hoTen}
         </NavLink>
@@ -57,10 +57,11 @@ export default function HeaderHome(props) {
             <div className="col-4">
               <div className="content">
                 <nav className="navbar">
-                  <a href="#selectFilm">Lịch Chiếu</a>
-                  <a href="#booking">Cụm Rạp</a>
-                  <a href="#app">Ứng Dụng</a>
-                  <a href="#footer">Tin Tức</a>
+                  <a href="/#selectFilm">Lịch Chiếu</a>
+                  <a href="/#booking">Cụm Rạp</a>
+                  <a href="/#app">Ứng Dụng</a>
+                  <a href="/#footer">Tin Tức</a>
+                  <NavLink to="/admin/users">Quản Trị</NavLink>
                 </nav>
               </div>
             </div>
@@ -76,3 +77,6 @@ export default function HeaderHome(props) {
     </header>
   )
 }
+
+
+export default memo(HeaderHome)

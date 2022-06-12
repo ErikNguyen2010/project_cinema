@@ -91,7 +91,7 @@ export const  AdminTemplate = (props) =>{
                 }}>
 
                 <Fragment>
-                          <NavLink className="booking__avatar" style={{textTransform: "uppercase"}} to="/admin">
+                          <NavLink className="booking__avatar" style={{textTransform: "uppercase"}} to={`/profile/${userLogin.taiKhoan}`}>
                               <i className="fa-solid fa-user-astronaut"></i>
                                 hi {userLogin.hoTen}
                               </NavLink>

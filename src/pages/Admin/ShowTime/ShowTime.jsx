@@ -92,7 +92,7 @@ import { layThongTinPhimAPI } from '../../../redux/reducers/layDanhSachFilmReduc
   return (
     <section className='showtime'>
       <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
-        <h1 className='mb-2' style={{fontSize: "30px", fontWeight:"bold", color:"black"}}>Thêm Lịch Chiếu - {props.match.params.tenPhim}</h1>
+        <h1 className='mb-2' style={{fontSize: "30px", fontWeight:"bold", color:"black"}}>Thêm Lịch Chiếu - {props.match.params.tenphim}</h1>
         <img className='' src={thongTinPhim.hinhAnh} alt="..." width={200} height={200} />
       </div>
              <Form
